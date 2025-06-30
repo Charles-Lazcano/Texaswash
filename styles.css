@@ -191,6 +191,7 @@ nav a:hover {
     font-size: 2.5rem;
     color: #00CED1;
     margin-bottom: 1rem;
+    font-weight: 700;
     position: relative;
 }
 
@@ -200,9 +201,9 @@ nav a:hover {
     bottom: -10px;
     left: 50%;
     transform: translateX(-50%);
-    width: 80px;
+    width: 90px;
     height: 4px;
-    background: linear-gradient(to right, #00CED1, #48D1CC);
+    background: #00CED1;
     border-radius: 2px;
 }
 
@@ -225,60 +226,45 @@ nav a:hover {
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
+    gap: 2.2rem;
+    margin-top: 2.5rem;
 }
 
 .service-card {
-    background: white;
-    padding: 2.5rem;
-    border-radius: 15px;
+    background: #eafdff;
+    padding: 2.5rem 1.5rem;
+    border-radius: 18px;
     text-align: center;
-    box-shadow: 0 5px 20px rgba(0,206,209,0.1);
-    transition: all 0.3s ease;
-    border: 2px solid transparent;
-    position: relative;
-    overflow: hidden;
-}
-
-.service-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(to right, #00CED1, #48D1CC);
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
+    border: none;
+    transition: transform 0.3s;
+    margin-bottom: 0;
+    /* No animation by default */
 }
 
 .service-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0,206,209,0.2);
-    border-color: #00CED1;
-}
-
-.service-card:hover::before {
-    transform: scaleX(1);
-}
-
-.service-icon {
-    font-size: 3rem;
-    color: #00CED1;
-    margin-bottom: 1.5rem;
+    animation: floatCard 1.2s ease-in-out infinite;
+    transform: translateY(-18px) scale(1.05);
 }
 
 .service-card h3 {
     color: #00CED1;
-    margin-bottom: 1rem;
-    font-size: 1.4rem;
+    font-size: 1.35rem;
+    font-weight: 700;
+    margin-bottom: 0.7rem;
 }
 
 .service-card p {
-    color: #666;
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
+    color: #444;
+    font-size: 1.05rem;
+    margin-bottom: 0.7rem;
+}
+
+.service-emoji {
+    font-size: 3.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.2rem;
 }
 
 .service-features {
@@ -645,6 +631,12 @@ footer {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+@keyframes floatCard {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
 }
 
 /* Responsive Design */
