@@ -287,6 +287,11 @@ nav a:hover {
     font-weight: bold;
 }
 
+.service-card.floating {
+    animation: floatCard 1.2s ease-in-out infinite;
+    transform: translateY(-18px) scale(1.05);
+}
+
 /* About Section */
 .about {
     padding: 5rem 0;

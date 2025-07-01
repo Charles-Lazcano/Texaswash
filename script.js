@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initScrollEffects();
     initGalleryModal();
     initContactFormValidation();
+    initMobileFloatingEffect();
 });
 
 // Mobile Menu Functionality
@@ -376,4 +377,34 @@ if ('serviceWorker' in navigator) {
                 console.log('ServiceWorker registration failed');
             });
     });
+}
+
+function initMobileFloatingEffect() {
+    // Only run on touch devices
+    if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+        const cards = document.querySelectorAll('.service-card');
+        let activeCard = null;
+
+        cards.forEach(card => {
+            card.addEventListener('touchstart', function(e) {
+                // Prevent double tap zoom
+                e.preventDefault();
+                // Remove floating from all cards
+                cards.forEach(c => c.classList.remove('floating'));
+                // Add floating to this card
+                this.classList.add('floating');
+                activeCard = this;
+                // Stop event from bubbling up
+                e.stopPropagation();
+            });
+        });
+
+        // Remove floating when tapping outside any card
+        document.body.addEventListener('touchstart', function(e) {
+            if (activeCard && !e.target.closest('.service-card')) {
+                activeCard.classList.remove('floating');
+                activeCard = null;
+            }
+        });
+    }
 } 
