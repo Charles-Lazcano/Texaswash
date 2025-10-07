@@ -154,11 +154,6 @@ The website is fully responsive and optimized for mobile devices:
 - Test on multiple devices
 - Validate HTML and CSS
 
-## 📞 Support
-
-For questions or support:
-- Email: your-email@example.com
-- GitHub Issues: [Create an issue](https://github.com/yourusername/aquaclean-pro/issues)
 
 ## 📄 License
 
